@@ -21,8 +21,8 @@
 3. Include the JARs that are in the `/jar` directory
 
 ## Issues
-1. **Black margin at the top and right:** This is a bug due to an old processing version, unfolding maps is not 
-available for processing 3 so it can't be updated right now. [Source](https://github.com/processing/processing/issues/5940)
+1. **Black margin at the top and right:** This is a bug due to a problem with the graphic card, if you are using an NVIDIA
+graphic card adjust the resolution in the control panel.
 
 ## Notes
  1. The program displays the maps using OPENGL renderer, it was built with a computer that uses NVIDIA GTX1650 graphic card
@@ -32,3 +32,12 @@ available for processing 3 so it can't be updated right now. [Source](https://gi
  
  2. The program is using `MicrosfotHybridProvider` as map provider instead of Google because the Google provider
  accepts a very small amount of requests per day and the rest of providers do not work at the moment
+ 
+## Test
+ This program was tested in the following JDK versions
+ 
+ | Version  |  Result      |
+ |----------|--------------|
+ |  JDK 15  | Doesn't work |
+ |  JDK 14  |    Works     |
+ |  JDK 8   |    Works     |
