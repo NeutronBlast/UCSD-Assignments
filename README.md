@@ -5,6 +5,10 @@
  This repository contains a menu to select the assignment to visualize. The list of assignments is:
  1. **Adjacent maps:** Displays two maps using `MicrosoftHybridProvider`, one map displays the location of UC San Diego,
  the other one displays the location of my hometown (Miranda - Venezuela)
+ 2. **Earthquake data map:** Displays a world map with markers that have different styles according to the magnitude of 
+ the earthquake
+ 3. **Life expectancy map:** Displays a world map of the life expectancy of each country, shades of blue mean higher
+ life expectancy and shades of red mean lower life expectancy
  
 ## Built with
 1. [Java with JDK 14](https://www.oracle.com/java/technologies/javase/jdk14-archive-downloads.html)
