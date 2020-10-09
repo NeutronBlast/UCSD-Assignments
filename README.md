@@ -6,7 +6,7 @@
  1. **Adjacent maps:** Displays two maps using `MicrosoftHybridProvider`, one map displays the location of UC San Diego,
  the other one displays the location of my hometown (Miranda - Venezuela)
  2. **Earthquake data map:** Displays a world map with markers that have different styles according to the magnitude of 
- the earthquake
+ the earthquake. Earthquake data are the most recent earthquakes extracted from an RSS Feed
  3. **Life expectancy map:** Displays a world map of the life expectancy of each country, shades of blue mean higher
  life expectancy and shades of red mean lower life expectancy
  
