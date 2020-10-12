@@ -1,6 +1,7 @@
 package ucsd;
 
 import processing.core.PApplet;
+import ucsd.weekfour.WeekFour;
 
 import java.util.Scanner;
 
@@ -8,7 +9,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Select assignment\n" +
                 "1. Dual map\n" +
-                "2. Map with earthquake data\n" +
+                "2. Map with earthquake data (magnitude only)\n" +
+                "3. Map with earthquake data (magnitude, depth, age)\n" +
                 "10. Extra 1: Life expectancy map by country\n");
 
         Scanner input = new Scanner(System.in);
@@ -24,6 +26,11 @@ public class Main {
                 String [] arg_2 = {"WeekThree"};
                 WeekThree win_2 = new WeekThree();
                 PApplet.runSketch(arg_2, win_2);
+                break;
+            case 3:
+                String [] arg_3 = {"WeekFour"};
+                WeekFour win_3 = new WeekFour();
+                PApplet.runSketch(arg_3, win_3);
                 break;
             case 10:
                 String [] arg_10 = {"ExtraOne"};
