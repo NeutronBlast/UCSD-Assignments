@@ -18,7 +18,7 @@ import java.util.List;
 
 public class WeekFour extends PApplet {
     //feed with magnitude 2.5+ Earthquakes
-    private String earthquakesURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.atom";
+    private String earthquakesURL = "data/test1.atom";
 
     // The files containing city names and info and country names and info
     private String cityFile = "data/city-data.json";
@@ -70,6 +70,56 @@ public class WeekFour extends PApplet {
         return false;
     }
 
+    /* prints countries with number of earthquakes as
+     * Country1: numQuakes1
+     * Country2: numQuakes2
+     * ...
+     * OCEAN QUAKES: numOceanQuakes
+     * */
+    private void printQuakes()
+    {
+        int countries = 1;
+        int oceanquakes = 0;
+        boolean counted = false;
+        List <Object> c = new ArrayList<Object>();
+
+        for (Marker cm: countryMarkers){
+            int quakes = 0;
+
+            /* If country isn't already in the list add */
+            if (!c.contains(cm.getProperty("name"))){
+                c.add(cm.getProperty("name"));
+
+                for (Marker qm: quakeMarkers){
+                    if ((cm.getProperty("name") != null && qm.getProperty("country") != null)
+                            && (cm.getProperty("name") == qm.getProperty("country"))){
+                        quakes++;
+                    }
+
+                    /* Iterate through all the null country earthquakes once using a flag */
+
+                    if (!counted){
+                        if (qm.getProperty("country") == null){
+                            oceanquakes++;
+                        }
+                    }
+                }
+
+                counted = true;
+                if (cm.getProperty("name") != null && quakes > 0){
+                    System.out.println("Country "+ countries + " (" + cm.getProperty("name") + "): " + quakes + "\n");
+                    countries++;
+                }
+            }
+
+            /* If country already exists don't bother */
+            else {
+                continue;
+            }
+        }
+        System.out.println("OCEAN QUAKES: " + oceanquakes);
+    }
+
     // Checks whether this quake occurred on land.  If it did, it sets the
     // "country" property of its PointFeature to the country where it occurred
     // and returns true.
@@ -80,11 +130,47 @@ public class WeekFour extends PApplet {
         // and a Marker as input.
         // If isInCountry ever returns true, isLand should return true.
         for (Marker m : countryMarkers) {
-            isInCountry(earthquake, m);
+            if (isInCountry(earthquake, m))
+                return true;
         }
 
         // not inside any country
         return false;
+    }
+
+    private void addKey() {
+        // Remember you can use Processing's graphics methods here
+        fill(255, 250, 240);
+        rect(25, 50, 165, 375);
+
+        fill(0);
+        textAlign(LEFT, CENTER);
+        textSize(12);
+        text("Earthquake Key", 65, 75);
+
+        fill(color(0, 248, 161));
+        triangle(50, 125, 50+8, 125+8, 50+16, 125);
+        fill(color(255, 255, 255));
+        ellipse(56, 167, 10, 10);
+        fill(color(255, 255, 255));
+        rect(50, 203, 10, 10);
+
+        fill(color(255, 250, 148));
+        ellipse(50, 295, 10, 10);
+        fill(color(0, 131, 195));
+        ellipse(50, 335, 10, 10);
+        fill(color(206, 73, 73));
+        ellipse(50, 375, 10, 10);
+
+
+        fill(0, 0, 0);
+        text("City Marker", 75, 125);
+        text("Land Quake", 75, 165);
+        text("Ocean Quake", 75, 205);
+        text("Size ~ Magnitude", 50, 255);
+        text("Shallow", 75, 295);
+        text("Intermediate", 75, 335);
+        text("Deep", 75, 375);
     }
 
     public void setup(){
@@ -143,7 +229,7 @@ public class WeekFour extends PApplet {
         }
 
         /* could be used for debugging
-        printQuakes();*/
+        printQuakes(); */
 
         // Add markers to map
         map.addMarkers(quakeMarkers);
@@ -152,7 +238,8 @@ public class WeekFour extends PApplet {
     }
 
     public void draw(){
-        //background(0);
+        background(0);
         //map.draw();
+        addKey();
     }
 }

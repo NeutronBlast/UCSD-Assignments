@@ -10,7 +10,7 @@ public class LandQuakeMarker extends EarthquakeMarker {
 
     @Override
     public void drawEarthquake(PGraphics pg, float x, float y) {
-        pg.ellipse(x, y, x+15, y+15);
+        pg.ellipse(x, y, 12, 12);
     }
 
     // Get the country the earthquake is in
