@@ -15,7 +15,7 @@ public class OceanQuakeMarker extends EarthquakeMarker {
         pg.rect(x, y, 13,13);
 
         /* Age */
-        if (this.getAge().equals("Past Week")){
+        if (this.getAge().equals("Past Day")){
             pg.line(x, y+13, x+13, y);
             pg.line(x, y, x+13, y+13);
             pg.strokeWeight(6);
