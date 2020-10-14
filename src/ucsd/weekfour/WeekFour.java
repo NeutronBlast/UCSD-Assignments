@@ -8,6 +8,7 @@ import de.fhpotsdam.unfolding.geo.Location;
 import de.fhpotsdam.unfolding.marker.AbstractShapeMarker;
 import de.fhpotsdam.unfolding.marker.Marker;
 import de.fhpotsdam.unfolding.marker.MultiMarker;
+import de.fhpotsdam.unfolding.marker.SimplePointMarker;
 import de.fhpotsdam.unfolding.providers.Microsoft;
 import de.fhpotsdam.unfolding.utils.MapUtils;
 import processing.core.PApplet;
@@ -18,7 +19,7 @@ import java.util.List;
 
 public class WeekFour extends PApplet {
     //feed with magnitude 2.5+ Earthquakes
-    private String earthquakesURL = "data/test1.atom";
+    private String earthquakesURL = "data/quiz1.atom";
 
     // The files containing city names and info and country names and info
     private String cityFile = "data/city-data.json";
@@ -141,7 +142,7 @@ public class WeekFour extends PApplet {
     private void addKey() {
         // Remember you can use Processing's graphics methods here
         fill(255, 250, 240);
-        rect(25, 50, 165, 375);
+        rect(25, 50, 165, 450);
 
         fill(0);
         textAlign(LEFT, CENTER);
@@ -162,6 +163,10 @@ public class WeekFour extends PApplet {
         fill(color(206, 73, 73));
         ellipse(50, 375, 10, 10);
 
+        fill(color(255, 255, 255));
+        rect(50, 450, 10, 10);
+        line(50, 450+10, 50+10, 450);
+        line(50, 450, 50+10, 450+10);
 
         fill(0, 0, 0);
         text("City Marker", 75, 125);
@@ -171,6 +176,8 @@ public class WeekFour extends PApplet {
         text("Shallow", 75, 295);
         text("Intermediate", 75, 335);
         text("Deep", 75, 375);
+        text("Age ~ Date", 50, 415);
+        text("Past Day", 75, 455);
     }
 
     public void setup(){
@@ -229,7 +236,7 @@ public class WeekFour extends PApplet {
         }
 
         /* could be used for debugging
-        printQuakes(); */
+        printQuakes();*/
 
         // Add markers to map
         map.addMarkers(quakeMarkers);
@@ -239,7 +246,7 @@ public class WeekFour extends PApplet {
 
     public void draw(){
         background(0);
-        //map.draw();
+        map.draw();
         addKey();
     }
 }

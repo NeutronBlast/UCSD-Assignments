@@ -9,6 +9,8 @@
  the earthquake. Earthquake data are the most recent earthquakes extracted from an RSS Feed
  3. **Life expectancy map:** Displays a world map of the life expectancy of each country, shades of blue mean higher
  life expectancy and shades of red mean lower life expectancy
+ 4. **Earthquake data map 2.0:** Displays a world map with markers that have different styles according to the depth 
+ and the location of the earthquake. It also displays triangle shaped markers for major cities
  
 ## Built with
 1. [Java with JDK 14](https://www.oracle.com/java/technologies/javase/jdk14-archive-downloads.html)
@@ -37,6 +39,11 @@ graphic card adjust the resolution in the control panel.
  2. The program is using `MicrosfotHybridProvider` as map provider instead of Google because the Google provider
  accepts a very small amount of requests per day and the rest of providers do not work at the moment
  
+## Other assignments
+ 1. **UML Class Diagram:** Class diagram that explains the hierarchy between `SimplePointMarker`, `AbstractMarker`, `Marker`,
+ `CityMarker`, `EarthquakeMarker`, `LandQuakeMarker` and `OceanQuakeMarker`. You can find it in `/uml/Week 4.png`
+ 
+  
 ## Test
  This program was tested in the following JDK versions
  

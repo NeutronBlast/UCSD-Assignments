@@ -11,6 +11,13 @@ public class LandQuakeMarker extends EarthquakeMarker {
     @Override
     public void drawEarthquake(PGraphics pg, float x, float y) {
         pg.ellipse(x, y, 12, 12);
+
+        /* Age */
+        if (this.getAge().equals("Past Day")){
+            pg.line(x-6, y-6, x+6, y+6);
+            pg.line(x+6, y-6, x-6, y+6);
+            pg.strokeWeight(6);
+        }
     }
 
     // Get the country the earthquake is in

@@ -19,9 +19,6 @@ public abstract class EarthquakeMarker extends SimplePointMarker {
     /** Greater than or equal to this threshold is a deep depth */
     public static final float THRESHOLD_DEEP = 300;
 
-    public static final Color SHALLOW_COLOR = new Color(255, 250, 148);
-    public static final Color INTERMEDIATE_COLOR = new Color(0, 131, 195);
-    public static final Color DEEP_COLOR = new Color(206, 73, 73);
 
     // abstract method implemented in derived classes
     public abstract void drawEarthquake(PGraphics pg, float x, float y);
@@ -84,6 +81,10 @@ public abstract class EarthquakeMarker extends SimplePointMarker {
 
     public float getDepth() {
         return Float.parseFloat(getProperty("depth").toString());
+    }
+
+    public String getAge(){
+        return (String) getProperty("age");
     }
 
     public String getTitle() {
