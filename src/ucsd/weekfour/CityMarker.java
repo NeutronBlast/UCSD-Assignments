@@ -20,8 +20,8 @@ public class CityMarker extends SimplePointMarker {
 
     public void draw(PGraphics pg, float x, float y){
         pg.pushStyle();
-        pg.triangle(x, y, x+8, y+8, x+16, y);
         pg.fill(0, 248, 161);
+        pg.triangle(x, y, x+8, y+8, x+16, y);
 
         pg.popStyle();
     }
