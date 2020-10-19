@@ -1,7 +1,6 @@
 package ucsd;
 
 import processing.core.PApplet;
-import ucsd.weekfive.WeekFive;
 import ucsd.weekfour.WeekFour;
 
 import java.util.Scanner;
@@ -35,9 +34,10 @@ public class Main {
                 PApplet.runSketch(arg_3, win_3);
                 break;
             case 4:
-                String [] arg_4 = {"WeekFive"};
+                /*String [] arg_4 = {"WeekFive"};
                 WeekFive win_4 = new WeekFive();
                 PApplet.runSketch(arg_4, win_4);
+                break;*/
                 break;
             case 10:
                 String [] arg_10 = {"ExtraOne"};
